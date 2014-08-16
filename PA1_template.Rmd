@@ -1,5 +1,11 @@
+---
+output:
+  html_document:
+    keep_md: yes
+---
 # Reproducible Research: Peer Assessment 1
 
+https://github.com/dbatorski/RepData_PeerAssessment1
 
 ## Loading and preprocessing the data
 
@@ -10,7 +16,9 @@ setwd(wd) # ustalanie katalogu roboczego
 
 Code to load the data:
 ```{r echo=TRUE}
-activity = read.csv("activity.csv")
+if(!file.exists("activity.csv")) unzip("activity.zip")
+activity <- read.csv("activity.csv", colClasses=c("integer", "Date", "integer"))
+head(activity)
 ```
 
 Process/transform the data (if necessary) into a format suitable for your analysis
@@ -32,12 +40,10 @@ hist(steps.perday, las=1,col=4,breaks=9,
 
 ```{r}
 dsmean <- mean(steps.perday)
+dsmedian <- median(steps.perday)
 ```
 Mean total number of steps taken per day is `r dsmean`.
 
-```{r}
-dsmedian <- median(steps.perday)
-```
 Median total number of steps taken per day is `r dsmedian`.
 
 
@@ -71,7 +77,8 @@ misval
 ```
 There is `r misval` missing values in the data set.
 
-Filling in all of the missing values in the dataset by replacing them with mean for that 5-minute interval. Create a new variable steps2 that is equal to the original but with the missing data filled in.
+The strategy for filling in the missing values in the dataset is to impute them using the average number of steps taken per 5-minute interval across all days.
+A new variable steps2 is created that is equal to the original but with the missing data filled in.
 ```{r}
 steps2 = steps
 for (i in 1:length(steps)){
