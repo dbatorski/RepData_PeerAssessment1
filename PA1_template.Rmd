@@ -1,8 +1,4 @@
----
-output:
-  html_document:
-    keep_md: yes
----
+<!-- rmarkdown v1 -->
 # Reproducible Research: Peer Assessment 1
 
 https://github.com/dbatorski/RepData_PeerAssessment1

@@ -1,3 +1,4 @@
+<!-- rmarkdown v1 -->
 # Reproducible Research: Peer Assessment 1
 
 https://github.com/dbatorski/RepData_PeerAssessment1
@@ -43,7 +44,7 @@ hist(steps.perday, las=1,col=4,breaks=9,
      main='Total number of steps taken each day',xlab='Number of steps')
 ```
 
-![plot of chunk unnamed-chunk-4](./PA1_template_files/figure-html/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
 
 
 ```r
@@ -67,7 +68,7 @@ plot(steps.perint, type='l', las=1, bty='l',
      main='Time series of average number of steps taken', xlab='interval', ylab='average number of steps taken')
 ```
 
-![plot of chunk unnamed-chunk-6](./PA1_template_files/figure-html/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -118,7 +119,7 @@ hist(steps2.perday, las=1,col=2,breaks=9,
      main='Total number of steps taken each day',xlab='Number of steps')
 ```
 
-![plot of chunk unnamed-chunk-10](./PA1_template_files/figure-html/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 The mean and median total number of steps taken per day. 
 
@@ -133,7 +134,7 @@ Both values are larger from the estimates from the first part of the assignment.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-A new factor variable in the dataset with two levels â€“ â€œweekdayâ€ and â€œweekendâ€ indicating whether a given date is a weekday or weekend day.
+A new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
 
 ```r
 weekd <- weekdays(as.Date(date, "%Y-%m-%d"),abbreviate=T)
@@ -166,7 +167,7 @@ plot(ts.steps2.wday, type='l', las=1, bty='l',
      main='Weekday', xlab='interval', ylab='average number of steps taken')
 ```
 
-![plot of chunk unnamed-chunk-13](./PA1_template_files/figure-html/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 ```r
 close.screen(all.screens=T)
